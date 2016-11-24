@@ -1,0 +1,24 @@
+﻿body {
+}
+
+.BorderR {
+    border-right-width:2px!important;
+    border-right-style:solid!important ;
+    border-right-color: #fff!important ;
+}
+
+.BorderL {
+    border-left-width:2px!important ;
+    border-left-style:solid!important ;
+    border-left-color: #e1eaf3!important ;
+}
+
+
+.BorderRL {
+    border-right-width:2px!important;
+    border-right-style:solid!important ;
+    border-right-color: #fff!important ;
+    border-left-width:2px!important ;
+    border-left-style:solid!important ;
+    border-left-color: #e1eaf3!important ;
+}

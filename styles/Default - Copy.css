@@ -1,0 +1,105 @@
+﻿html,body { height: 100%; margin: 0px; padding: 0px; }
+tbody {
+    width: 100%;
+}
+
+.full {
+    width:100%;
+    height:100%;
+}
+
+.fullwidth {
+    width:100%;
+}
+
+.desktop {
+    width:100%;
+    height:100%;
+    background-image: url('/Images/Wallpaper/windows_10.jpg');
+    background-color:transparent;
+    background-repeat:no-repeat;
+    background-size: 100% 100%;
+    position:fixed;
+    top:0px;
+}
+
+.SearchZone {
+    border:1px solid white;
+    width:100%;
+    height:2%;
+    background-color:silver;
+    top:0px;
+    position:relative;
+}
+
+.RestrictionZone {
+	border: solid 1px black;
+    margin:0px 0px 0px 0px;
+    height:100%;
+    width:100%;
+    position:fixed;
+    top:25px;
+    overflow:auto;
+}
+
+.taskbar {
+    height:40px;
+    width:100%;
+    background-color:#c8c7c7;
+    text-align:center;
+    vertical-align:middle;
+    display:table-row;
+    position:fixed;
+    bottom:0px;
+    opacity:0.9;
+}
+
+.taskbar_tabs {
+    height:40px;
+    display:table-cell;
+    left:115px;
+    top:0px;
+    position:absolute;
+}
+
+.taskbar_tab {
+    padding-top:4px;
+    background-color:#c8c7c7;
+    border:outset;
+    border-width:1px;
+    height:34px;
+    display:table-cell;
+}
+
+.taskbar_tab_selected {
+    padding-top:4px;
+    background-color:#808080;
+    border:inset;
+    border-width:1px;
+    height:34px;
+    display:table-cell;
+}
+
+.taskbar_start {
+    border:none;
+    border-right:1px solid;
+    width:112px;
+    position:absolute;
+    top:0px;
+    left:0px;
+}
+
+.taskbar_notification {
+    border:none;
+    border-left:1px solid;
+    width:200px;
+    height:40px;
+    position:absolute;
+    top:0px;
+    right:0px;
+}
+
+
+.RadWindow .rwWindowContent {
+    background-color: white !important;
+}

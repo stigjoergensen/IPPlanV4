@@ -1,0 +1,992 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://dsv.com/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="http://dsv.com/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://dsv.com/">
+      <s:element name="InsertHistory">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Hostname" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Who" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="PatchDate" type="s:dateTime" />
+            <s:element minOccurs="0" maxOccurs="1" name="Text" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InsertHistoryResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="InsertHistoryResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RemoveApprovals">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Hostname" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RemoveApprovalsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RemoveApprovalsResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateHost">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="hostname" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateHostResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CreateHostResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateApplication">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AppID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateApplicationResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CreateApplicationResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InsertMonth">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Hostname" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Month" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InsertMonthResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="InsertMonthResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteMonth">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Hostname" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Month" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteMonthResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DeleteMonthResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InsertTime">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Hostname" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Time" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InsertTimeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="InsertTimeResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteTime">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Hostname" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Time" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteTimeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DeleteTimeResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InsertServiceWindow">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Hostname" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="ServiceWindowID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="DateID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InsertServiceWindowResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="InsertServiceWindowResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteServiceWindow">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Hostname" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="ServiceWindowID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteServiceWindowResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DeleteServiceWindowResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ChangeApprove">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Hostname" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Value" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ChangeApproveResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ChangeApproveResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ChangeTier">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Hostname" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Value" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ChangeTierResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ChangeTierResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ChangeOffset">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Hostname" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Value" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ChangeOffsetResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ChangeOffsetResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="NewDate">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="hostname" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="OriginalPatchDate" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="NewPatchDate" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="NewDateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="NewDateResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="OriginalDate">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Hostname" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="OriginalPatchDate" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="OriginalDateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="OriginalDateResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DisableDate">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Hostname" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="OriginalPatchDate" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DisableDateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DisableDateResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Approve">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Hostname" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Approver" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="PatchDate" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ApproveResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ApproveResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RevokeApproval">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Hostname" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="PatchDate" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RevokeApprovalResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="RevokeApprovalResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ResetSchedule">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="hostname" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ResetScheduleResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ResetScheduleResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Lock">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Hostname" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="PatchDate" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LockResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="LockResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Start">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Hostname" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="PatchDate" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="StartResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="StartResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Finished">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Hostname" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="PatchDate" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FinishedResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="FinishedResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="InsertHistorySoapIn">
+    <wsdl:part name="parameters" element="tns:InsertHistory" />
+  </wsdl:message>
+  <wsdl:message name="InsertHistorySoapOut">
+    <wsdl:part name="parameters" element="tns:InsertHistoryResponse" />
+  </wsdl:message>
+  <wsdl:message name="RemoveApprovalsSoapIn">
+    <wsdl:part name="parameters" element="tns:RemoveApprovals" />
+  </wsdl:message>
+  <wsdl:message name="RemoveApprovalsSoapOut">
+    <wsdl:part name="parameters" element="tns:RemoveApprovalsResponse" />
+  </wsdl:message>
+  <wsdl:message name="CreateHostSoapIn">
+    <wsdl:part name="parameters" element="tns:CreateHost" />
+  </wsdl:message>
+  <wsdl:message name="CreateHostSoapOut">
+    <wsdl:part name="parameters" element="tns:CreateHostResponse" />
+  </wsdl:message>
+  <wsdl:message name="CreateApplicationSoapIn">
+    <wsdl:part name="parameters" element="tns:CreateApplication" />
+  </wsdl:message>
+  <wsdl:message name="CreateApplicationSoapOut">
+    <wsdl:part name="parameters" element="tns:CreateApplicationResponse" />
+  </wsdl:message>
+  <wsdl:message name="InsertMonthSoapIn">
+    <wsdl:part name="parameters" element="tns:InsertMonth" />
+  </wsdl:message>
+  <wsdl:message name="InsertMonthSoapOut">
+    <wsdl:part name="parameters" element="tns:InsertMonthResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteMonthSoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteMonth" />
+  </wsdl:message>
+  <wsdl:message name="DeleteMonthSoapOut">
+    <wsdl:part name="parameters" element="tns:DeleteMonthResponse" />
+  </wsdl:message>
+  <wsdl:message name="InsertTimeSoapIn">
+    <wsdl:part name="parameters" element="tns:InsertTime" />
+  </wsdl:message>
+  <wsdl:message name="InsertTimeSoapOut">
+    <wsdl:part name="parameters" element="tns:InsertTimeResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteTimeSoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteTime" />
+  </wsdl:message>
+  <wsdl:message name="DeleteTimeSoapOut">
+    <wsdl:part name="parameters" element="tns:DeleteTimeResponse" />
+  </wsdl:message>
+  <wsdl:message name="InsertServiceWindowSoapIn">
+    <wsdl:part name="parameters" element="tns:InsertServiceWindow" />
+  </wsdl:message>
+  <wsdl:message name="InsertServiceWindowSoapOut">
+    <wsdl:part name="parameters" element="tns:InsertServiceWindowResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteServiceWindowSoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteServiceWindow" />
+  </wsdl:message>
+  <wsdl:message name="DeleteServiceWindowSoapOut">
+    <wsdl:part name="parameters" element="tns:DeleteServiceWindowResponse" />
+  </wsdl:message>
+  <wsdl:message name="ChangeApproveSoapIn">
+    <wsdl:part name="parameters" element="tns:ChangeApprove" />
+  </wsdl:message>
+  <wsdl:message name="ChangeApproveSoapOut">
+    <wsdl:part name="parameters" element="tns:ChangeApproveResponse" />
+  </wsdl:message>
+  <wsdl:message name="ChangeTierSoapIn">
+    <wsdl:part name="parameters" element="tns:ChangeTier" />
+  </wsdl:message>
+  <wsdl:message name="ChangeTierSoapOut">
+    <wsdl:part name="parameters" element="tns:ChangeTierResponse" />
+  </wsdl:message>
+  <wsdl:message name="ChangeOffsetSoapIn">
+    <wsdl:part name="parameters" element="tns:ChangeOffset" />
+  </wsdl:message>
+  <wsdl:message name="ChangeOffsetSoapOut">
+    <wsdl:part name="parameters" element="tns:ChangeOffsetResponse" />
+  </wsdl:message>
+  <wsdl:message name="NewDateSoapIn">
+    <wsdl:part name="parameters" element="tns:NewDate" />
+  </wsdl:message>
+  <wsdl:message name="NewDateSoapOut">
+    <wsdl:part name="parameters" element="tns:NewDateResponse" />
+  </wsdl:message>
+  <wsdl:message name="OriginalDateSoapIn">
+    <wsdl:part name="parameters" element="tns:OriginalDate" />
+  </wsdl:message>
+  <wsdl:message name="OriginalDateSoapOut">
+    <wsdl:part name="parameters" element="tns:OriginalDateResponse" />
+  </wsdl:message>
+  <wsdl:message name="DisableDateSoapIn">
+    <wsdl:part name="parameters" element="tns:DisableDate" />
+  </wsdl:message>
+  <wsdl:message name="DisableDateSoapOut">
+    <wsdl:part name="parameters" element="tns:DisableDateResponse" />
+  </wsdl:message>
+  <wsdl:message name="ApproveSoapIn">
+    <wsdl:part name="parameters" element="tns:Approve" />
+  </wsdl:message>
+  <wsdl:message name="ApproveSoapOut">
+    <wsdl:part name="parameters" element="tns:ApproveResponse" />
+  </wsdl:message>
+  <wsdl:message name="RevokeApprovalSoapIn">
+    <wsdl:part name="parameters" element="tns:RevokeApproval" />
+  </wsdl:message>
+  <wsdl:message name="RevokeApprovalSoapOut">
+    <wsdl:part name="parameters" element="tns:RevokeApprovalResponse" />
+  </wsdl:message>
+  <wsdl:message name="ResetScheduleSoapIn">
+    <wsdl:part name="parameters" element="tns:ResetSchedule" />
+  </wsdl:message>
+  <wsdl:message name="ResetScheduleSoapOut">
+    <wsdl:part name="parameters" element="tns:ResetScheduleResponse" />
+  </wsdl:message>
+  <wsdl:message name="LockSoapIn">
+    <wsdl:part name="parameters" element="tns:Lock" />
+  </wsdl:message>
+  <wsdl:message name="LockSoapOut">
+    <wsdl:part name="parameters" element="tns:LockResponse" />
+  </wsdl:message>
+  <wsdl:message name="StartSoapIn">
+    <wsdl:part name="parameters" element="tns:Start" />
+  </wsdl:message>
+  <wsdl:message name="StartSoapOut">
+    <wsdl:part name="parameters" element="tns:StartResponse" />
+  </wsdl:message>
+  <wsdl:message name="FinishedSoapIn">
+    <wsdl:part name="parameters" element="tns:Finished" />
+  </wsdl:message>
+  <wsdl:message name="FinishedSoapOut">
+    <wsdl:part name="parameters" element="tns:FinishedResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ScheduleSoap">
+    <wsdl:operation name="InsertHistory">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Insert History Entry</wsdl:documentation>
+      <wsdl:input message="tns:InsertHistorySoapIn" />
+      <wsdl:output message="tns:InsertHistorySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RemoveApprovals">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Delete Approvals and Exceptions</wsdl:documentation>
+      <wsdl:input message="tns:RemoveApprovalsSoapIn" />
+      <wsdl:output message="tns:RemoveApprovalsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateHost">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Create a new schedule based on Hostname</wsdl:documentation>
+      <wsdl:input message="tns:CreateHostSoapIn" />
+      <wsdl:output message="tns:CreateHostSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateApplication">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Create a new schedule based on ApplicationID</wsdl:documentation>
+      <wsdl:input message="tns:CreateApplicationSoapIn" />
+      <wsdl:output message="tns:CreateApplicationSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertMonth">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Insert Month</wsdl:documentation>
+      <wsdl:input message="tns:InsertMonthSoapIn" />
+      <wsdl:output message="tns:InsertMonthSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteMonth">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Delete Month</wsdl:documentation>
+      <wsdl:input message="tns:DeleteMonthSoapIn" />
+      <wsdl:output message="tns:DeleteMonthSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertTime">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Insert Time</wsdl:documentation>
+      <wsdl:input message="tns:InsertTimeSoapIn" />
+      <wsdl:output message="tns:InsertTimeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTime">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Delete Time</wsdl:documentation>
+      <wsdl:input message="tns:DeleteTimeSoapIn" />
+      <wsdl:output message="tns:DeleteTimeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertServiceWindow">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Insert service window date</wsdl:documentation>
+      <wsdl:input message="tns:InsertServiceWindowSoapIn" />
+      <wsdl:output message="tns:InsertServiceWindowSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteServiceWindow">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Delete Service window</wsdl:documentation>
+      <wsdl:input message="tns:DeleteServiceWindowSoapIn" />
+      <wsdl:output message="tns:DeleteServiceWindowSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ChangeApprove">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Change the approvalID value</wsdl:documentation>
+      <wsdl:input message="tns:ChangeApproveSoapIn" />
+      <wsdl:output message="tns:ChangeApproveSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ChangeTier">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Change the Tier value</wsdl:documentation>
+      <wsdl:input message="tns:ChangeTierSoapIn" />
+      <wsdl:output message="tns:ChangeTierSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ChangeOffset">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Change the offset value</wsdl:documentation>
+      <wsdl:input message="tns:ChangeOffsetSoapIn" />
+      <wsdl:output message="tns:ChangeOffsetSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="NewDate">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Set a new date as service window</wsdl:documentation>
+      <wsdl:input message="tns:NewDateSoapIn" />
+      <wsdl:output message="tns:NewDateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="OriginalDate">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Set the service window back to its original date (as calculated by the schedule</wsdl:documentation>
+      <wsdl:input message="tns:OriginalDateSoapIn" />
+      <wsdl:output message="tns:OriginalDateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DisableDate">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Disable the service window</wsdl:documentation>
+      <wsdl:input message="tns:DisableDateSoapIn" />
+      <wsdl:output message="tns:DisableDateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Approve">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Approve the service window</wsdl:documentation>
+      <wsdl:input message="tns:ApproveSoapIn" />
+      <wsdl:output message="tns:ApproveSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RevokeApproval">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Remove approval of a service window</wsdl:documentation>
+      <wsdl:input message="tns:RevokeApprovalSoapIn" />
+      <wsdl:output message="tns:RevokeApprovalSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ResetSchedule">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Reset service window schedule to GroupIT Standard (2nd sunday after 2nd tuesday, each month, between 1am and 6am)</wsdl:documentation>
+      <wsdl:input message="tns:ResetScheduleSoapIn" />
+      <wsdl:output message="tns:ResetScheduleSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Lock">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Lock the Service window, so it can not be edited - Useually happens when the Host have been scheduled for update</wsdl:documentation>
+      <wsdl:input message="tns:LockSoapIn" />
+      <wsdl:output message="tns:LockSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Start">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Report the service window as Started</wsdl:documentation>
+      <wsdl:input message="tns:StartSoapIn" />
+      <wsdl:output message="tns:StartSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Finished">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Report the service window as finished</wsdl:documentation>
+      <wsdl:input message="tns:FinishedSoapIn" />
+      <wsdl:output message="tns:FinishedSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ScheduleSoap" type="tns:ScheduleSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="InsertHistory">
+      <soap:operation soapAction="http://dsv.com/InsertHistory" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveApprovals">
+      <soap:operation soapAction="http://dsv.com/RemoveApprovals" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateHost">
+      <soap:operation soapAction="http://dsv.com/CreateHost" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateApplication">
+      <soap:operation soapAction="http://dsv.com/CreateApplication" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertMonth">
+      <soap:operation soapAction="http://dsv.com/InsertMonth" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteMonth">
+      <soap:operation soapAction="http://dsv.com/DeleteMonth" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertTime">
+      <soap:operation soapAction="http://dsv.com/InsertTime" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTime">
+      <soap:operation soapAction="http://dsv.com/DeleteTime" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertServiceWindow">
+      <soap:operation soapAction="http://dsv.com/InsertServiceWindow" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteServiceWindow">
+      <soap:operation soapAction="http://dsv.com/DeleteServiceWindow" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ChangeApprove">
+      <soap:operation soapAction="http://dsv.com/ChangeApprove" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ChangeTier">
+      <soap:operation soapAction="http://dsv.com/ChangeTier" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ChangeOffset">
+      <soap:operation soapAction="http://dsv.com/ChangeOffset" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NewDate">
+      <soap:operation soapAction="http://dsv.com/NewDate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OriginalDate">
+      <soap:operation soapAction="http://dsv.com/OriginalDate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DisableDate">
+      <soap:operation soapAction="http://dsv.com/DisableDate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Approve">
+      <soap:operation soapAction="http://dsv.com/Approve" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RevokeApproval">
+      <soap:operation soapAction="http://dsv.com/RevokeApproval" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ResetSchedule">
+      <soap:operation soapAction="http://dsv.com/ResetSchedule" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Lock">
+      <soap:operation soapAction="http://dsv.com/Lock" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Start">
+      <soap:operation soapAction="http://dsv.com/Start" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Finished">
+      <soap:operation soapAction="http://dsv.com/Finished" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ScheduleSoap12" type="tns:ScheduleSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="InsertHistory">
+      <soap12:operation soapAction="http://dsv.com/InsertHistory" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveApprovals">
+      <soap12:operation soapAction="http://dsv.com/RemoveApprovals" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateHost">
+      <soap12:operation soapAction="http://dsv.com/CreateHost" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateApplication">
+      <soap12:operation soapAction="http://dsv.com/CreateApplication" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertMonth">
+      <soap12:operation soapAction="http://dsv.com/InsertMonth" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteMonth">
+      <soap12:operation soapAction="http://dsv.com/DeleteMonth" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertTime">
+      <soap12:operation soapAction="http://dsv.com/InsertTime" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTime">
+      <soap12:operation soapAction="http://dsv.com/DeleteTime" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertServiceWindow">
+      <soap12:operation soapAction="http://dsv.com/InsertServiceWindow" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteServiceWindow">
+      <soap12:operation soapAction="http://dsv.com/DeleteServiceWindow" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ChangeApprove">
+      <soap12:operation soapAction="http://dsv.com/ChangeApprove" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ChangeTier">
+      <soap12:operation soapAction="http://dsv.com/ChangeTier" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ChangeOffset">
+      <soap12:operation soapAction="http://dsv.com/ChangeOffset" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NewDate">
+      <soap12:operation soapAction="http://dsv.com/NewDate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OriginalDate">
+      <soap12:operation soapAction="http://dsv.com/OriginalDate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DisableDate">
+      <soap12:operation soapAction="http://dsv.com/DisableDate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Approve">
+      <soap12:operation soapAction="http://dsv.com/Approve" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RevokeApproval">
+      <soap12:operation soapAction="http://dsv.com/RevokeApproval" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ResetSchedule">
+      <soap12:operation soapAction="http://dsv.com/ResetSchedule" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Lock">
+      <soap12:operation soapAction="http://dsv.com/Lock" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Start">
+      <soap12:operation soapAction="http://dsv.com/Start" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Finished">
+      <soap12:operation soapAction="http://dsv.com/Finished" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Schedule">
+    <wsdl:port name="ScheduleSoap" binding="tns:ScheduleSoap">
+      <soap:address location="http://localhost/IPPlanWebService/Schedule.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ScheduleSoap12" binding="tns:ScheduleSoap12">
+      <soap12:address location="http://localhost/IPPlanWebService/Schedule.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

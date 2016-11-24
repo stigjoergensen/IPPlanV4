@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://dsv.com/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="http://dsv.com/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://dsv.com/">
+      <s:element name="SendOverview">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="StartDays" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="EndDays" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="OverrideMailAdr" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendOverviewResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SendOverviewResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendStatus">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="StartDays" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="EndDays" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="OverrideMailAdr" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendStatusResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SendStatusResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendApplication">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="StartDays" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="EndDays" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="OverrideMailAdr" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendApplicationResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SendApplicationResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendEscalation">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="StartDays" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="EndDays" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="OverrideMailAdr" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendEscalationResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SendEscalationResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Test3">
+        <s:complexType />
+      </s:element>
+      <s:element name="Test3Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="Test3Result" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="SendOverviewSoapIn">
+    <wsdl:part name="parameters" element="tns:SendOverview" />
+  </wsdl:message>
+  <wsdl:message name="SendOverviewSoapOut">
+    <wsdl:part name="parameters" element="tns:SendOverviewResponse" />
+  </wsdl:message>
+  <wsdl:message name="SendStatusSoapIn">
+    <wsdl:part name="parameters" element="tns:SendStatus" />
+  </wsdl:message>
+  <wsdl:message name="SendStatusSoapOut">
+    <wsdl:part name="parameters" element="tns:SendStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="SendApplicationSoapIn">
+    <wsdl:part name="parameters" element="tns:SendApplication" />
+  </wsdl:message>
+  <wsdl:message name="SendApplicationSoapOut">
+    <wsdl:part name="parameters" element="tns:SendApplicationResponse" />
+  </wsdl:message>
+  <wsdl:message name="SendEscalationSoapIn">
+    <wsdl:part name="parameters" element="tns:SendEscalation" />
+  </wsdl:message>
+  <wsdl:message name="SendEscalationSoapOut">
+    <wsdl:part name="parameters" element="tns:SendEscalationResponse" />
+  </wsdl:message>
+  <wsdl:message name="Test3SoapIn">
+    <wsdl:part name="parameters" element="tns:Test3" />
+  </wsdl:message>
+  <wsdl:message name="Test3SoapOut">
+    <wsdl:part name="parameters" element="tns:Test3Response" />
+  </wsdl:message>
+  <wsdl:portType name="PatchMailSoap">
+    <wsdl:operation name="SendOverview">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Send an Overview mail to ITSMs, The content sorted so each ITSM gets one mail</wsdl:documentation>
+      <wsdl:input message="tns:SendOverviewSoapIn" />
+      <wsdl:output message="tns:SendOverviewSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendStatus">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">A status mail is send, one mail is generated with all servers( possible users is ServiceDesk)</wsdl:documentation>
+      <wsdl:input message="tns:SendStatusSoapIn" />
+      <wsdl:output message="tns:SendStatusSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendApplication">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Send an Overview mail to ITSMs, The content sorted so each Each application gets one mail (eg. ITSM might get multiple mails)</wsdl:documentation>
+      <wsdl:input message="tns:SendApplicationSoapIn" />
+      <wsdl:output message="tns:SendApplicationSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendEscalation">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Generate one mail, with only servers that are not approved for patching</wsdl:documentation>
+      <wsdl:input message="tns:SendEscalationSoapIn" />
+      <wsdl:output message="tns:SendEscalationSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Test3">
+      <wsdl:input message="tns:Test3SoapIn" />
+      <wsdl:output message="tns:Test3SoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="PatchMailSoap" type="tns:PatchMailSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="SendOverview">
+      <soap:operation soapAction="http://dsv.com/SendOverview" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendStatus">
+      <soap:operation soapAction="http://dsv.com/SendStatus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendApplication">
+      <soap:operation soapAction="http://dsv.com/SendApplication" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendEscalation">
+      <soap:operation soapAction="http://dsv.com/SendEscalation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Test3">
+      <soap:operation soapAction="http://dsv.com/Test3" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="PatchMailSoap12" type="tns:PatchMailSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="SendOverview">
+      <soap12:operation soapAction="http://dsv.com/SendOverview" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendStatus">
+      <soap12:operation soapAction="http://dsv.com/SendStatus" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendApplication">
+      <soap12:operation soapAction="http://dsv.com/SendApplication" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendEscalation">
+      <soap12:operation soapAction="http://dsv.com/SendEscalation" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Test3">
+      <soap12:operation soapAction="http://dsv.com/Test3" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="PatchMail">
+    <wsdl:port name="PatchMailSoap" binding="tns:PatchMailSoap">
+      <soap:address location="http://localhost/IPPlanWebService/PatchMail.asmx" />
+    </wsdl:port>
+    <wsdl:port name="PatchMailSoap12" binding="tns:PatchMailSoap12">
+      <soap12:address location="http://localhost/IPPlanWebService/PatchMail.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

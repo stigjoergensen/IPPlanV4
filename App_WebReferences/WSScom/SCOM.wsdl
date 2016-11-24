@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://dsv.com/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://dsv.com/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://dsv.com/">
+      <s:element name="GetSCOMStates">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetSCOMStatesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetSCOMStatesResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ListObjects">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Classname" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ListObjectsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ListObjectsResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetSCOMStatesSoapIn">
+    <wsdl:part name="parameters" element="tns:GetSCOMStates" />
+  </wsdl:message>
+  <wsdl:message name="GetSCOMStatesSoapOut">
+    <wsdl:part name="parameters" element="tns:GetSCOMStatesResponse" />
+  </wsdl:message>
+  <wsdl:message name="ListObjectsSoapIn">
+    <wsdl:part name="parameters" element="tns:ListObjects" />
+  </wsdl:message>
+  <wsdl:message name="ListObjectsSoapOut">
+    <wsdl:part name="parameters" element="tns:ListObjectsResponse" />
+  </wsdl:message>
+  <wsdl:portType name="SCOMSoap">
+    <wsdl:operation name="GetSCOMStates">
+      <wsdl:input message="tns:GetSCOMStatesSoapIn" />
+      <wsdl:output message="tns:GetSCOMStatesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ListObjects">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get all object in a given classname</wsdl:documentation>
+      <wsdl:input message="tns:ListObjectsSoapIn" />
+      <wsdl:output message="tns:ListObjectsSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="SCOMSoap" type="tns:SCOMSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetSCOMStates">
+      <soap:operation soapAction="http://dsv.com/GetSCOMStates" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListObjects">
+      <soap:operation soapAction="http://dsv.com/ListObjects" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="SCOMSoap12" type="tns:SCOMSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetSCOMStates">
+      <soap12:operation soapAction="http://dsv.com/GetSCOMStates" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListObjects">
+      <soap12:operation soapAction="http://dsv.com/ListObjects" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="SCOM">
+    <wsdl:port name="SCOMSoap" binding="tns:SCOMSoap">
+      <soap:address location="http://localhost/IPPlanWebService/SCOM.asmx" />
+    </wsdl:port>
+    <wsdl:port name="SCOMSoap12" binding="tns:SCOMSoap12">
+      <soap12:address location="http://localhost/IPPlanWebService/SCOM.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

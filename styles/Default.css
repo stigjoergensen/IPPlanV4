@@ -1,0 +1,157 @@
+﻿html,body {
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+    font-family: "Segoe UI",Arial,Helvetica,sans-serif;
+    background-color: #FFFFFF;
+    font-size: small;
+    /*overflow:hidden;*/
+}
+
+tbody {
+       width:100%
+}
+
+.desktop {
+    background-image: url('/Images/Wallpaper/windows_10.jpg');
+    background-color:transparent;
+    background-repeat:no-repeat;
+    background-size: 100% 100%;
+    position:fixed;
+    top:0px;
+    border:0px;
+    width:100%;
+    height:100%;
+    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/Images/Wallpaper/windows_10.jpg',sizingMethod='scale');
+}
+
+.desktop2 {
+    background-image: url('/Images/Wallpaper/CyberDyne.jpg');
+    background-color:black;
+    background-repeat:no-repeat;
+    background-size: 100% 100%;
+    position:fixed;
+    top:0px;
+    border:0px;
+    width:100%;
+    height:100%;
+    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/Images/Wallpaper/CyberDyne.jpg',sizingMethod='scale');
+}
+
+
+.dialogPanel {
+    background-color:aliceblue;
+    text-align:center;
+    padding:20px 20px 20px 20px;
+}
+
+.SearchZone {
+    border:1px solid white;
+    background-color:silver;
+    text-wrap:none;
+    text-align:center;
+    border:0px;
+    height:25px;
+}
+
+.RestrictionZone {
+	border: solid 1px black;
+    margin:0px 0px 0px 0px;
+    border:0px;
+    overflow-y:scroll;
+    display:block;
+}
+
+.taskbar {
+    background-color:#c8c7c7;
+    text-align:center;
+    vertical-align:middle;
+    border:0px;
+    height:42px;
+    width:100%;
+}
+
+.taskbar_start {
+    border:none;
+    border-right:1px solid;
+    width:112px;
+    float:left;
+    background-image:url(/Images/DSVMenu_blue.png);
+}
+
+.taskbar_tabs {
+    overflow-y:auto;
+    overflow-x:hidden;
+    height:40px;
+    text-align:left;
+    float:left;
+    width:100%;
+}
+
+.taskbar_notification {
+    border:none;
+    border-left:1px solid;
+    float:right;
+    padding-left:20px;
+    padding-right:20px;
+    height:40px;
+}
+
+.taskbar_tab {
+    border:outset;
+    padding-top:4px;
+    background-color:#c8c7c7;
+    border-width:1px;
+    height:34px;
+    font-weight:normal;
+    color:black;
+}
+
+.taskbar_tab_selected {
+    border:inset;
+    padding-top:4px;
+    background-color:#808080;
+    border-width:1px;
+    height:34px;
+    font-weight:bold;
+    color:white;
+}
+
+.searchItem {
+    padding-left:20px;
+    padding-right:20px;
+    vertical-align:top;
+    height:100%;
+}
+
+.TimeZoneInfo {
+    vertical-align:top;
+    height:100%;
+    text-align:right;
+}
+
+.imageButton_75 {
+    border:1px outset;
+    border-radius:5px;
+    width:75px;
+}
+
+.RadWindow .rwWindowContent {
+    background-color: white !important;
+}
+
+.boxred {
+    border-color : #FFA6A6;
+    border-width:2px;
+    border-style:solid;
+}
+
+.boxamber {
+    border-color : #FFA666;
+    border-width:2px;
+    border-style:solid;
+}
+
+.textred {
+    color:#FFA6A6;
+}

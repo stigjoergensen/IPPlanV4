@@ -1,0 +1,43 @@
+
+.mainMenu {
+    z-index:99999;
+}
+
+.MenuTitle .rmText {
+    background-color:#6A87AA !important;
+    background: -webkit-linear-gradient(left, #6A87AA, #1C536E) !important; /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(left, #6A87AA, #1C536E) !important; /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(left, #6A87AA, #1C536E) !important; /* For Firefox 3.6 to 15 */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#6A87AA', endColorstr='#1C536E',GradientType=0 ); /* IE6-9 */
+    background: linear-gradient(left, #6A87AA, #1C536E) !important; /* Standard syntax (must be last) */
+    color:white;
+    font-size:larger;
+    font-weight:bold;
+}
+
+.rmFirst {
+}
+
+#grad1 {
+    height: 200px;
+    background: -webkit-linear-gradient(left, #6A87AA, #1C536E); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(left, #6A87AA, #1C536E); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(left, #6A87AA, #1C536E); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(left, #6A87AA, #1C536E); /* Standard syntax (must be last) */
+}
+
+div.HelpMenu .rmRootGroup  {
+    border:none !important; 
+    background-color:transparent !important;
+    background-image:none;
+}
+div.HelpMenu a.rmFirst {
+    background-image:none !important;
+}
+div.mainMenu .rmRootGroup {
+    border:none !important; 
+    background-color:transparent !important;
+}
+div.mainMenu a.rmFirst {
+    background-image:none !important;
+}
